@@ -34,9 +34,11 @@ Offer.init(
     {
         sequelize: database.connection,
         underscored: true,
+        tableName: 'Offers',
     }
 );
 
-Offer.belongsTo(Course);
+Offer.belongsTo(Course, { foreignKey: 'courseId' });
+Course.hasMany(Offer, { foreignKey: 'courseId' });
 
 export default Offer;

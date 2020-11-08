@@ -1,6 +1,8 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
+
 'use strict';
 
-const offers = require('../db.json');
+const offers = require('../../db.json');
 
 module.exports = {
     up: async queryInterface => {
@@ -16,7 +18,7 @@ module.exports = {
                     ['id']
                 );
 
-                const id = await queryInterface.rawSelect(
+                const campusId = await queryInterface.rawSelect(
                     'Campus',
                     {
                         where: {
@@ -27,7 +29,21 @@ module.exports = {
                     ['id']
                 );
 
-                if (!id) await queryInterface.bulkInsert('Campus', [{ ...offer.campus, university_id: universityId }]);
+                const id = await queryInterface.rawSelect(
+                    'Courses',
+                    {
+                        where: {
+                            name: offer.course.name,
+                            kind: offer.course.kind,
+                            level: offer.course.level,
+                            shift: offer.course.shift,
+                            campus_id: campusId,
+                        },
+                    },
+                    ['id']
+                );
+
+                if (!id) await queryInterface.bulkInsert('Courses', [{ ...offer.course, campus_id: campusId }]);
             }
         } catch (error) {
             console.log(error);
@@ -35,6 +51,6 @@ module.exports = {
     },
 
     down: async queryInterface => {
-        await queryInterface.bulkDelete('Campus');
+        await queryInterface.bulkDelete('Courses');
     },
 };

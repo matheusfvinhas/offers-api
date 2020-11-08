@@ -32,16 +32,18 @@ User.init(
         email: { allowNull: false, unique: true, type: Sequelize.STRING },
         firstName: { allowNull: false, type: Sequelize.STRING },
         lastName: { allowNull: false, type: Sequelize.STRING },
+        password: { allowNull: false, type: Sequelize.VIRTUAL },
         passwordHash: { allowNull: false, type: Sequelize.STRING },
     },
     {
         sequelize: database.connection,
         underscored: true,
+        tableName: 'Users',
     }
 );
 
 User.addHook(
-    'beforeSave',
+    'beforeValidate',
     async (user: User): Promise<void> => {
         if (user.password) {
             user.passwordHash = await bcrypt.hash(user.password, 8);

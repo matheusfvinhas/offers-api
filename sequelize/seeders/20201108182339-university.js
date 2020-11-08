@@ -1,6 +1,8 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
+
 'use strict';
 
-const offers = require('../db.json');
+const offers = require('../../db.json');
 
 module.exports = {
     up: async queryInterface => {

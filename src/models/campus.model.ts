@@ -1,6 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
 import database from '../config/database';
-import Course from './course.model';
 import University from './university.model';
 
 class Campus extends Model {
@@ -29,11 +28,11 @@ Campus.init(
     {
         sequelize: database.connection,
         underscored: true,
+        tableName: 'Campus',
     }
 );
 
-Campus.belongsTo(University);
-
-Campus.hasMany(Course);
+Campus.belongsTo(University, { foreignKey: 'universityId' });
+University.hasMany(Campus, { foreignKey: 'universityId' });
 
 export default Campus;
