@@ -6,9 +6,11 @@
     "scripts": {
         "build": "tsc",
         "lint": "eslint --fix './src/**/*.ts'",
-        "prod": "sequelize db:migrate && npm run build && node dist/index.js",
+        "prod": "npm run migrate && npm run build && node dist/index.js",
         "start": "npm run migrate && nodemon -r dotenv/config src/index.ts",
-        "migrate": "sequelize db:migrate"
+        "migrate": "sequelize db:migrate",
+        "seed": "sequelize db:seed:all",
+        "setup:dev": "npm run migrate && npm run seed"
     },
     "dependencies": {
         "bcrypt": "5.0.0",

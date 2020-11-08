@@ -10,22 +10,23 @@ module.exports = {
             },
             name: {
                 allowNull: false,
-                unique: true,
                 type: Sequelize.STRING,
             },
             city: {
                 allowNull: false,
                 type: Sequelize.STRING,
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            UniversityId: {
+            university_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Universities',

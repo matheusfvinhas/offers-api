@@ -28,6 +28,7 @@ Course.init(
     },
     {
         sequelize: database.connection,
+        underscored: true,
     }
 );
 

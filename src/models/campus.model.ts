@@ -19,7 +19,6 @@ Campus.init(
     {
         name: {
             allowNull: false,
-            unique: true,
             type: Sequelize.STRING,
         },
         city: {
@@ -29,6 +28,7 @@ Campus.init(
     },
     {
         sequelize: database.connection,
+        underscored: true,
     }
 );
 

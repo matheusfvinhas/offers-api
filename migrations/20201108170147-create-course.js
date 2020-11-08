@@ -12,15 +12,17 @@ module.exports = {
             kind: { allowNull: false, type: Sequelize.STRING },
             level: { allowNull: false, type: Sequelize.STRING },
             shift: { allowNull: false, type: Sequelize.STRING },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            CampusId: {
+            campus_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Campus',

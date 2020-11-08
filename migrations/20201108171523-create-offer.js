@@ -8,21 +8,23 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            fullPrice: { allowNull: false, type: Sequelize.FLOAT },
-            priceWithDiscount: { allowNull: false, type: Sequelize.FLOAT },
-            discountPercentage: { allowNull: false, type: Sequelize.FLOAT },
-            startDate: { allowNull: false, type: Sequelize.STRING },
-            enrollmentSemester: { allowNull: false, type: Sequelize.STRING },
+            full_price: { allowNull: false, type: Sequelize.FLOAT },
+            price_with_discount: { allowNull: false, type: Sequelize.FLOAT },
+            discount_percentage: { allowNull: false, type: Sequelize.FLOAT },
+            start_date: { allowNull: false, type: Sequelize.STRING },
+            enrollment_semester: { allowNull: false, type: Sequelize.STRING },
             enabled: { allowNull: false, type: Sequelize.BOOLEAN, defaultValue: true },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: new Date(),
             },
-            CourseId: {
+            course_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Courses',
