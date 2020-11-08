@@ -21,7 +21,7 @@ class AuthenticationController {
                 { username: user.username, email: user.email, sub: user.id },
                 process.env.JWT_SECRET as Secret,
                 {
-                    expiresIn: '15m',
+                    expiresIn: '10h',
                 }
             );
 
