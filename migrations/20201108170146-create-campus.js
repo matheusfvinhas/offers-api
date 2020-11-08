@@ -25,6 +25,15 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
+            UniversityId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Universities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            },
         });
     },
     down: async queryInterface => {

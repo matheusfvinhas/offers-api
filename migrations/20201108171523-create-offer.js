@@ -22,7 +22,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            courseId: {
+            CourseId: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Courses',

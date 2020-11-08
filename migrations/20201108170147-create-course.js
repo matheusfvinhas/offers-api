@@ -20,16 +20,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            universityId: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: 'Universities',
-                    key: 'id',
-                },
-                onUpdate: 'CASCADE',
-                onDelete: 'SET NULL',
-            },
-            campusId: {
+            CampusId: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Campus',

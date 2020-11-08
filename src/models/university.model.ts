@@ -1,5 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 import database from '../config/database';
+import Campus from './campus.model';
 
 class University extends Model {
     public id!: number;
@@ -27,5 +28,7 @@ University.init(
         sequelize: database.connection,
     }
 );
+
+University.hasMany(Campus);
 
 export default University;
