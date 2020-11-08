@@ -5,7 +5,7 @@
     "author": "Matheus Vinhas",
     "scripts": {
         "build": "tsc",
-        "lint": "eslint --fix './**/**/*.{ts,js}'",
+        "lint": "eslint --fix './src/**/*.{ts,js}' './sequelize/**/*.{ts,js}'",
         "prod": "npm run migrate && npm run build && node dist/index.js",
         "start": "npm run migrate && nodemon -r dotenv/config src/index.ts",
         "migrate": "sequelize db:migrate",

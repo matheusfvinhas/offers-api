@@ -26,7 +26,6 @@ University.init(
     {
         sequelize: database.connection,
         underscored: true,
-        tableName: 'Universities',
     }
 );
 

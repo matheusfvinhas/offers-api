@@ -1,33 +1,27 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import Campus from '../models/campus.model';
 import Course from '../models/course.model';
 import Offer from '../models/offer.model';
 import University from '../models/university.model';
+import { OfferUtil } from '../utils/offer.util';
 
 class OfferController {
-    public async index({ res }: { res: Response }): Promise<void> {
+    public async index(req: Request, res: Response): Promise<void> {
         try {
             const offers = await Offer.findAll({
-                attributes: [
-                    'full_price',
-                    'price_with_discount',
-                    'discount_percentage',
-                    'start_date',
-                    'enrollment_semester',
-                    'enabled',
-                ],
+                order: [['priceWithDiscount', req.query.order as string]],
                 include: [
                     {
                         model: Course,
-                        attributes: ['name', 'kind', 'level', 'shift'],
+                        as: 'course',
                         include: [
                             {
                                 model: Campus,
-                                attributes: ['name', 'city'],
+                                as: 'campus',
                                 include: [
                                     {
                                         model: University,
-                                        attributes: ['name', 'score', 'logo_url'],
+                                        as: 'university',
                                     },
                                 ],
                             },
@@ -36,7 +30,7 @@ class OfferController {
                 ],
             });
 
-            res.status(200).json(offers);
+            res.status(200).json(OfferUtil.buildOfferReturn(offers));
         } catch (error) {
             res.status(400).json(error.message);
         }

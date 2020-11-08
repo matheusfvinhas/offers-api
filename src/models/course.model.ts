@@ -16,6 +16,8 @@ class Course extends Model {
     public readonly createdAt!: Date;
 
     public readonly updatedAt!: Date;
+
+    public campus: Campus;
 }
 
 Course.init(
@@ -28,11 +30,10 @@ Course.init(
     {
         sequelize: database.connection,
         underscored: true,
-        tableName: 'Courses',
     }
 );
 
-Course.belongsTo(Campus, { foreignKey: 'campusId' });
-Campus.hasMany(Course, { foreignKey: 'campusId' });
+Course.belongsTo(Campus, { as: 'campus', foreignKey: 'campusId' });
+Campus.hasMany(Course, { as: 'course', foreignKey: 'campusId' });
 
 export default Course;

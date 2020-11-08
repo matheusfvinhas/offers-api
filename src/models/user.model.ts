@@ -38,7 +38,6 @@ User.init(
     {
         sequelize: database.connection,
         underscored: true,
-        tableName: 'Users',
     }
 );
 

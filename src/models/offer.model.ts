@@ -20,6 +20,8 @@ class Offer extends Model {
     public readonly createdAt!: Date;
 
     public readonly updatedAt!: Date;
+
+    public course: Course;
 }
 
 Offer.init(
@@ -34,11 +36,10 @@ Offer.init(
     {
         sequelize: database.connection,
         underscored: true,
-        tableName: 'Offers',
     }
 );
 
-Offer.belongsTo(Course, { foreignKey: 'courseId' });
-Course.hasMany(Offer, { foreignKey: 'courseId' });
+Offer.belongsTo(Course, { as: 'course', foreignKey: 'courseId' });
+Course.hasMany(Offer, { as: 'offer', foreignKey: 'courseId' });
 
 export default Offer;

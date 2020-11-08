@@ -9,7 +9,7 @@ module.exports = {
         try {
             for (const offer of offers) {
                 const id = await queryInterface.rawSelect(
-                    'Universities',
+                    'universities',
                     {
                         where: {
                             name: offer.university.name,
@@ -18,7 +18,7 @@ module.exports = {
                     ['id']
                 );
 
-                if (!id) await queryInterface.bulkInsert('Universities', [offer.university]);
+                if (!id) await queryInterface.bulkInsert('universities', [offer.university]);
             }
         } catch (error) {
             console.log(error);
@@ -26,6 +26,6 @@ module.exports = {
     },
 
     down: async queryInterface => {
-        await queryInterface.bulkDelete('Universities');
+        await queryInterface.bulkDelete('universities');
     },
 };
