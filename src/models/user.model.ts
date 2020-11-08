@@ -28,12 +28,11 @@ class User extends Model {
 
 User.init(
     {
-        username: { type: Sequelize.STRING, unique: true },
-        email: { type: Sequelize.STRING, unique: true },
-        firstName: Sequelize.STRING,
-        lastName: Sequelize.STRING,
-        password: Sequelize.VIRTUAL,
-        passwordHash: Sequelize.STRING,
+        username: { allowNull: false, unique: true, type: Sequelize.STRING },
+        email: { allowNull: false, unique: true, type: Sequelize.STRING },
+        firstName: { allowNull: false, type: Sequelize.STRING },
+        lastName: { allowNull: false, type: Sequelize.STRING },
+        passwordHash: { allowNull: false, type: Sequelize.STRING },
     },
     {
         sequelize: database.connection,
