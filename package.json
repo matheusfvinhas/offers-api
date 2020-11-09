@@ -1,0 +1,48 @@
+{
+    "name": "offers",
+    "version": "1.0.0",
+    "description": "Offers API",
+    "author": "Matheus Vinhas",
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint --fix './src/**/*.{ts,js}' './sequelize/**/*.{ts,js}'",
+        "prod": "npm run migrate && npm run build && node dist/index.js",
+        "start": "npm run migrate && nodemon -r dotenv/config src/index.ts",
+        "migrate": "sequelize db:migrate",
+        "seed": "sequelize db:seed:all",
+        "setup:dev": "npm run migrate && npm run seed"
+    },
+    "dependencies": {
+        "bcrypt": "5.0.0",
+        "body-parser": "1.19.0",
+        "cors": "2.8.5",
+        "express": "4.17.1",
+        "helmet": "4.2.0",
+        "jsonwebtoken": "8.5.1",
+        "morgan": "1.10.0",
+        "pg": "8.4.2",
+        "sequelize": "6.3.5",
+        "swagger-ui-express": "4.1.4"
+    },
+    "devDependencies": {
+        "@types/cors": "2.8.8",
+        "@types/express": "4.17.8",
+        "@types/helmet": "0.0.48",
+        "@types/jsonwebtoken": "8.5.0",
+        "@types/mongoose": "5.7.37",
+        "@types/morgan": "1.9.2",
+        "@types/sequelize": "4.28.9",
+        "@types/swagger-ui-express": "4.1.2",
+        "@typescript-eslint/eslint-plugin": "4.6.1",
+        "@typescript-eslint/parser": "4.6.1",
+        "dotenv": "8.2.0",
+        "eslint": "7.12.1",
+        "eslint-config-prettier": "6.15.0",
+        "eslint-plugin-prettier": "3.1.4",
+        "nodemon": "2.0.6",
+        "prettier": "2.1.2",
+        "sequelize-cli": "6.2.0",
+        "ts-node": "9.0.0",
+        "typescript": "4.0.5"
+    }
+}
