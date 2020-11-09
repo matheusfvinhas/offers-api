@@ -5,7 +5,7 @@ import User from '../models/user.model';
 class UserController {
     public async create(req: Request, res: Response): Promise<void> {
         try {
-            const newUser = new User(req.body.user);
+            const newUser = new User(req.body);
 
             const user = await User.findOne({
                 where: { [Op.or]: [{ username: newUser.username || '' }, { email: newUser.email || '' }] },

@@ -16,6 +16,30 @@
             "post": {
                 "summary": "Authenticate user and returs jwt",
                 "requestBody": {
+                    "description": "Login Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "post": {
+                "summary": "Create user",
+                "requestBody": {
                     "description": "User Object",
                     "required": true,
                     "content": {
@@ -27,15 +51,46 @@
                     }
                 },
                 "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Return all users",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-access-token",
+                        "required": true,
+                        "description": "JWT Token"
+                    }
+                ],
+                "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "Ok",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Usuário e/ou senha inválidos."
+                    },
+                    "403": {
+                        "description": "Token inválido ou não fornecido ou expirado."
                     }
                 }
             }
         }
     },
     "definitions": {
-        "User": {
+        "Login": {
             "type": "object",
             "properties": {
                 "username": {
@@ -43,6 +98,37 @@
                 },
                 "password": {
                     "type": "string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Users": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/User"
+                    }
                 }
             }
         }
