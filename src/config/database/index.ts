@@ -17,6 +17,11 @@ class Database {
                 },
             });
 
+            // this.connection = new Sequelize.Sequelize({
+            //     dialect: 'sqlite',
+            //     storage: './database.sqlite3',
+            // });
+
             await this.connection.authenticate();
 
             console.log('Database connection has been established successfully.');

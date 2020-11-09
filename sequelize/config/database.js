@@ -8,3 +8,14 @@ module.exports = {
         dialect: 'postgres',
     },
 };
+
+// module.exports = {
+//     development: {
+//         dialect: 'sqlite',
+//         storage: './database.sqlite3',
+//     },
+//     production: {
+//         dialect: 'sqlite',
+//         storage: './database.sqlite3',
+//     },
+// };

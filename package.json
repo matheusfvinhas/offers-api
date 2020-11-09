@@ -23,6 +23,7 @@
         "morgan": "1.10.0",
         "pg": "8.4.2",
         "sequelize": "6.3.5",
+        "sqlite3": "5.0.0",
         "swagger-ui-express": "4.1.4"
     },
     "devDependencies": {
