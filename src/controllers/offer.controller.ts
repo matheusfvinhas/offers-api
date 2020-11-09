@@ -8,8 +8,10 @@ import { OfferUtil } from '../utils/offer.util';
 class OfferController {
     public async index(req: Request, res: Response): Promise<void> {
         try {
+            const order = ((req.query.order as string) || '').toUpperCase();
+
             const offers = await Offer.findAll({
-                order: [['priceWithDiscount', req.query.order as string]],
+                order: [['priceWithDiscount', order === 'ASC' || order === 'DESC' ? order : 'ASC']],
                 include: [
                     {
                         model: Course,

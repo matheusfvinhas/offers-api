@@ -71,10 +71,68 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Ok",
-                        "schema": {
-                            "$ref": "#/definitions/Users"
-                        }
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Usuário e/ou senha inválidos."
+                    },
+                    "403": {
+                        "description": "Token inválido ou não fornecido ou expirado."
+                    }
+                }
+            }
+        },
+        "/offers": {
+            "get": {
+                "summary": "Return all offers",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-access-token",
+                        "required": true,
+                        "description": "JWT Token"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "ASC or DESC"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Usuário e/ou senha inválidos."
+                    },
+                    "403": {
+                        "description": "Token inválido ou não fornecido ou expirado."
+                    }
+                }
+            }
+        },
+        "/courses": {
+            "get": {
+                "summary": "Return all courses",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-access-token",
+                        "required": true,
+                        "description": "JWT Token"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
                     },
                     "400": {
                         "description": "Bad Request"
@@ -118,17 +176,6 @@
                 },
                 "password": {
                     "type": "string"
-                }
-            }
-        },
-        "Users": {
-            "type": "object",
-            "properties": {
-                "users": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "#/definitions/User"
-                    }
                 }
             }
         }
