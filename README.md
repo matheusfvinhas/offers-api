@@ -10,7 +10,7 @@ npm run start:dev
 
 ### Database
 
-SQLite is the default database, to use PostgreSQL, comment the necessary code in the files **_src/index.ts_** and **_sequelize/config/database.js_** and set the **_POSTGRES_URL_** in the file .env
+SQLite is the default database, to use PostgreSQL, set the **_DATABASE_** to **POSTGRES** and the database url **_POSTGRES_URL_** in the file .env
 
 ### Docs
 
