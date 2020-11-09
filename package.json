@@ -3,14 +3,15 @@
     "version": "1.0.0",
     "description": "Offers API",
     "author": "Matheus Vinhas",
+    "heroku-run-build-script": true,
     "scripts": {
-        "build": "tsc",
-        "lint": "eslint --fix './src/**/*.{ts,js}' './sequelize/**/*.{ts,js}'",
-        "prod": "npm run migrate && npm run build && node dist/index.js",
-        "start": "npm run migrate && nodemon -r dotenv/config src/index.ts",
+        "build": "npm run migrate && npm run seed && tsc",
+        "start": "node dist/src/index.js",
         "migrate": "sequelize db:migrate",
         "seed": "sequelize db:seed:all",
-        "setup:dev": "npm run migrate && npm run seed"
+        "setup:dev": "npm run migrate && npm run seed",
+        "start:dev": "npm run migrate && nodemon -r dotenv/config src/index.ts",
+        "lint": "eslint --fix './src/**/*.{ts,js}' './sequelize/**/*.{ts,js}'"
     },
     "dependencies": {
         "bcrypt": "5.0.0",
