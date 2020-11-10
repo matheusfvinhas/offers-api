@@ -21,16 +21,16 @@ class OfferController {
                         required: true,
                         where: {
                             name: {
-                                [Op.iLike]: `%${course || ''}%`,
+                                [Op.like]: `%${course || ''}%`,
                             },
                             kind: {
-                                [Op.iLike]: `%${kind || ''}%`,
+                                [Op.like]: `%${kind || ''}%`,
                             },
                             level: {
-                                [Op.iLike]: `%${level || ''}%`,
+                                [Op.like]: `%${level || ''}%`,
                             },
                             shift: {
-                                [Op.iLike]: `%${shift || ''}%`,
+                                [Op.like]: `%${shift || ''}%`,
                             },
                         },
                         include: [
@@ -40,7 +40,7 @@ class OfferController {
                                 required: true,
                                 where: {
                                     city: {
-                                        [Op.iLike]: `%${city || ''}%`,
+                                        [Op.like]: `%${city || ''}%`,
                                     },
                                 },
                                 include: [
@@ -50,7 +50,7 @@ class OfferController {
                                         required: true,
                                         where: {
                                             name: {
-                                                [Op.iLike]: `%${university || ''}%`,
+                                                [Op.like]: `%${university || ''}%`,
                                             },
                                         },
                                     },

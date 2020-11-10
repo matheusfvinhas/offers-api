@@ -13,13 +13,13 @@ class CourseController {
             const courses = await Course.findAll({
                 where: {
                     kind: {
-                        [Op.iLike]: `%${kind || ''}%`,
+                        [Op.like]: `%${kind || ''}%`,
                     },
                     level: {
-                        [Op.iLike]: `%${level || ''}%`,
+                        [Op.like]: `%${level || ''}%`,
                     },
                     shift: {
-                        [Op.iLike]: `%${shift || ''}%`,
+                        [Op.like]: `%${shift || ''}%`,
                     },
                 },
                 include: {
@@ -32,7 +32,7 @@ class CourseController {
                             as: 'university',
                             where: {
                                 name: {
-                                    [Op.iLike]: `%${university || ''}%`,
+                                    [Op.like]: `%${university || ''}%`,
                                 },
                             },
                             required: true,
