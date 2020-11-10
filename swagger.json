@@ -101,6 +101,48 @@
                         "required": false,
                         "schema": { "type": "string" },
                         "description": "ASC or DESC"
+                    },
+                    {
+                        "in": "query",
+                        "name": "university",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "University name"
+                    },
+                    {
+                        "in": "query",
+                        "name": "course",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course name"
+                    },
+                    {
+                        "in": "query",
+                        "name": "kind",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course kind"
+                    },
+                    {
+                        "in": "query",
+                        "name": "level",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course level"
+                    },
+                    {
+                        "in": "query",
+                        "name": "shift",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course shift"
+                    },
+                    {
+                        "in": "query",
+                        "name": "city",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Campus city"
                     }
                 ],
                 "responses": {
@@ -128,6 +170,34 @@
                         "name": "x-access-token",
                         "required": true,
                         "description": "JWT Token"
+                    },
+                    {
+                        "in": "query",
+                        "name": "university",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "University name"
+                    },
+                    {
+                        "in": "query",
+                        "name": "kind",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course kind"
+                    },
+                    {
+                        "in": "query",
+                        "name": "level",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course level"
+                    },
+                    {
+                        "in": "query",
+                        "name": "shift",
+                        "required": false,
+                        "schema": { "type": "string" },
+                        "description": "Course shift"
                     }
                 ],
                 "responses": {
